@@ -23,7 +23,7 @@ public class AuthenticationService {
 				.lastname(request.getLastname())
 				.email(request.getEmail())
 				.password(passwordEncoder.encode(request.getPassword()))
-				.build();//
+				.build();
 		return null;
 	}
 
