@@ -10,20 +10,20 @@ import jwtsecurity.services.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api/v1/auth")
+@RequestMapping(path = "/api/v1/auth", produces = "application/json")
 @RequiredArgsConstructor
 public class AuthenticationController {
 	
 	private final AuthenticationService service;
 	
-	@PostMapping("/register")
+	@PostMapping(path = "/register", consumes = "application/json")
 	public ResponseEntity<AuthenticationResponse> register(
 			@RequestBody RegisterRequest request
 	) {
 		return ResponseEntity.ok(service.register(request));
 	}
 
-	@PostMapping("/authenticate")
+	@PostMapping(path = "/authenticate", consumes = "application/json")
 	public ResponseEntity<AuthenticationResponse> authenticate(
 			@RequestBody AuthenticationRequest request
 	) {
