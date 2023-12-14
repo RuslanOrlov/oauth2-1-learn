@@ -31,7 +31,8 @@ public class JwtService {
 				.claims(extraClaims)								// вместо .setClaims()
 				.subject(userDetails.getUsername())					// вместо .setSubject()
 				.issuedAt(new Date(System.currentTimeMillis()))		// вместо .setIssuedAt()
-				.expiration(new Date(System.currentTimeMillis()))	// вместо .setExpiration()
+				.expiration(new Date(System.currentTimeMillis() 	// вместо .setExpiration()
+											+ 1000 * 60 * 2))		// !!! плюс 2 мин. к текущему времени
 				.signWith(getSignInKey(), Jwts.SIG.HS256)			// вторым параметром вместо SignatureAlgorithm.HS256 передается Jwts.SIG.HS256
 				.compact();
 	}
