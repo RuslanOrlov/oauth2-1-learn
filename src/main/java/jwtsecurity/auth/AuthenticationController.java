@@ -20,6 +20,9 @@ public class AuthenticationController {
 	public ResponseEntity<AuthenticationResponse> register(
 			@RequestBody RegisterRequest request
 	) {
+		// Здесь сделать проверку на наличие user-а по username (email).
+		// Метод проверки реализовать в AuthenticationService, а здесь 
+		// сделать возврат кода об ошибке и соответствующего сообщения. 
 		return ResponseEntity.ok(service.register(request));
 	}
 
