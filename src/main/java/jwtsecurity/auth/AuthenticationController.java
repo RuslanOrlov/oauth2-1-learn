@@ -24,7 +24,7 @@ public class AuthenticationController {
 		// если проверка отрицательная, возвращаем код об ошибке и 
 		// соответствующее сообщение. 
 		if (service.isExistsEmail(request)) {
-			return ResponseEntity.badRequest().body("Error: this email already exists");
+			return ResponseEntity.badRequest().body("{\"message\":\"This email already exists\"}");
 		}
 		// В противном случае создаем нового пользователя. 
 		return ResponseEntity.ok(service.register(request));
