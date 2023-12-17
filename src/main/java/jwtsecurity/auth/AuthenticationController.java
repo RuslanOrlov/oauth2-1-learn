@@ -20,10 +20,9 @@ public class AuthenticationController {
 	public ResponseEntity<?> register(
 			@RequestBody RegisterRequest request
 	) {
-		// Делаем проверку на наличие user-а по username (email) 
-		// и если проверка отрицательная, делаем возврат кода об 
-		// ошибке и соответствующего сообщения. Метод проверки 
-		// isExistsEmail() реализован в AuthenticationService. 
+		// Делаем проверку на наличие user-а по username (email) и 
+		// если проверка отрицательная, возвращаем код об ошибке и 
+		// соответствующее сообщение. 
 		if (service.isExistsEmail(request)) {
 			return ResponseEntity.badRequest().body("Error: this email already exists");
 		}

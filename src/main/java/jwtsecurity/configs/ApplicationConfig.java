@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.AuthenticationException;
@@ -53,7 +54,15 @@ public class ApplicationConfig {
 			@Override
 			public void commence(HttpServletRequest request, HttpServletResponse response,
 					AuthenticationException authException) throws IOException, ServletException {
-				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+				
+				// Назначаем статус ответа 401 (неавторизован), если были 
+				// плохие аутентификационные данные (неверное имя пользователя 
+				// (почта) или пароль). Во всех остальных случаях статус ответа 
+				// устанавливается автоматически корректными значениями. 
+				if (authException instanceof BadCredentialsException) {
+					response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+				}
+				
 				response.setContentType("application/json");
 				String json = "{\"message\":\"Authentication error: " 
 								+ authException.getMessage() + "\"}";
