@@ -50,4 +50,8 @@ public class AuthenticationService {
 				.token(jwtToken)
 				.build();
 	}
+
+	public boolean isExistsEmail(RegisterRequest request) {
+		return repository.existsByEmail(request.getEmail());
+	}
 }
