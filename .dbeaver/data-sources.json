@@ -14,7 +14,6 @@
 				"configurationType": "MANUAL",
 				"home": "postgresql-x64-14",
 				"type": "dev",
-				"provider-properties": {},
 				"auth-model": "native"
 			}
 		}

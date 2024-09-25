@@ -14,20 +14,19 @@
 				"configurationType": "MANUAL",
 				"home": "postgresql-x64-14",
 				"type": "dev",
-				"provider-properties": {},
 				"auth-model": "native"
 			}
 		},
-		"postgres-jdbc-18c4c0f44f3-2f005452a603efb7": {
+		"postgres-jdbc-18c7e17cd23-6ce22d9fb85a5dfd": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
-			"name": "first_oauth2 2",
+			"name": "postgres",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "5432",
-				"database": "first_oauth2",
-				"url": "jdbc:postgresql://localhost:5432/first_oauth2",
+				"database": "postgres",
+				"url": "jdbc:postgresql://localhost:5432/postgres",
 				"configurationType": "MANUAL",
 				"home": "postgresql-x64-14",
 				"type": "dev",
